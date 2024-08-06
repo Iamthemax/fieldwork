@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#F0F0F0</color>
+
+    <!-- Text Colors -->
+    <color name="primary_text_color">#212121</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <color name="link_color">#1E88E5</color>
+
+    <!-- Card Background and Stroke Colors -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="box_stroke_color">#DDDDDD</color>
+    <color name="button_background_color">#6200EE</color>
+
+    <!-- Error Colors -->
+    <color name="error_color">#D32F2F</color>
+
+    <!-- Success Colors -->
+    <color name="success_color">#388E3C</color>
+</resources>

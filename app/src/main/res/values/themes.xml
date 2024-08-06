@@ -1,0 +1,76 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Fieldwork" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/button_background_color</item>
+        <item name="colorPrimaryVariant">@color/button_background_color</item>
+        <item name="colorOnPrimary">@color/button_text_color</item>
+
+        <!-- Secondary color -->
+        <item name="colorSecondary">@color/primary_text_color</item>
+        <item name="colorSecondaryVariant">@color/primary_text_color</item>
+        <item name="colorOnSecondary">@color/primary_text_color</item>
+
+        <!-- Background color -->
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="colorOnBackground">@color/primary_text_color</item>
+
+        <!-- Surface color -->
+        <item name="colorSurface">@color/card_background</item>
+        <item name="colorOnSurface">@color/primary_text_color</item>
+
+        <!-- Error color -->
+        <item name="colorError">@color/error_color</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Typography -->
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MyApp.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MyApp.Headline2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MyApp.Body1</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.MyApp</item>
+        <!-- Shape -->
+    </style>
+
+    <!-- Text appearance styles -->
+    <style name="TextAppearance.MyApp.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+    <style name="TextAppearance.MyApp.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+    <style name="TextAppearance.MyApp.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+    <!-- Shape appearance styles -->
+
+
+    <style name="ShapeAppearance.MyApp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <!-- Button styles -->
+    <style name="Widget.MyApp.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/button_background_color</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <!-- TextInputLayout styles -->
+    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/box_stroke_color</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/primary_text_color</item>
+    </style>
+
+    <!-- TextInputEditText styles -->
+    <style name="Widget.MyApp.TextInputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+
+    <style name="Theme.Fieldwork" parent="Base.Theme.Fieldwork" />
+</resources>

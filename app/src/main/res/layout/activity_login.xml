@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.startup.LoginActivity"
+    android:background="@color/background_color">
+    <!-- App Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="App Name"
+        android:textColor="@color/primary_text_color"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp" />
+    <!-- App Logo -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_app_logo"
+        android:contentDescription="@string/app_logo_description"
+        android:background="@drawable/circle_background"
+        android:padding="16dp"/>
+    <!-- CardView for Login Form -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/card_background">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+            <!-- Email Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_email_id"
+                app:boxCornerRadius="8dp"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Password Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_password"
+                app:boxCornerRadius="8dp"
+                app:boxStrokeColor="@color/box_stroke_color"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/button_text_color"
+                android:backgroundTint="@color/button_background_color"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Reset Password Link -->
+            <TextView
+                android:id="@+id/tvResetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_password_1"
+                android:textColor="@color/link_color"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
