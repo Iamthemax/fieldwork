@@ -19,7 +19,7 @@ class AreaViewModel(private val areaRepository: AreaRepository) : ViewModel() {
     suspend fun getAllTalukas(id:String): LiveData<List<AreaItem>> {
         return areaRepository.getAllTalukas(id);
     }
-    suspend fun getAreaByLocationId(id:String): AreaItem {
+     fun getAreaByLocationId(id:String): LiveData<AreaItem> {
         return areaRepository.getAreaByLocationId(id);
     }
     fun insertAll(items: List<AreaItem>) {
@@ -35,9 +35,7 @@ class AreaViewModel(private val areaRepository: AreaRepository) : ViewModel() {
             }else{
                 Log.d(XConst.MYTAG,"Area is not empty")
             }
-
         }
-
     }
     suspend fun getAllArea(): LiveData<List<AreaItem>> {
         return areaRepository.getAllArea();

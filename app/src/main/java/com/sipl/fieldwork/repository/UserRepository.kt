@@ -13,9 +13,9 @@ class UserRepository(private val apiService: ApiService) {
     private val loginData = MutableLiveData<BaseResponse<LoginResponse>>()
     val getLogin: LiveData<BaseResponse<LoginResponse>>
         get() = loginData
-    suspend fun loginUser(name: String) {
+    suspend fun loginUser(mobile: String,password:String) {
         try {
-            val result = apiService.loginUser(name)
+            val result = apiService.loginUser(mobile,password)
             if (result.isSuccessful) {
                 loginData.postValue(BaseResponse.Success(result.body()!!))
             } else {

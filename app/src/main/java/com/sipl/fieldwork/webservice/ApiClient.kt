@@ -50,7 +50,6 @@ object ApiClient {
         return retrofit.create(ApiService::class.java)
     }
     private fun getAuthToken():String{
-
         val pref=MySharedPref(getAppContext())
         Log.d("mytag", pref.getToken())
         return pref.getToken()

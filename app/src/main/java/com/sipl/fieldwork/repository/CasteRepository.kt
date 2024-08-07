@@ -12,7 +12,7 @@ class CasteRepository(private val casteDao: CasteDao) {
     suspend fun getAllCastes(): LiveData<List<Caste>> {
         return casteDao.getAllCastes()
     }
-    suspend fun getCasteById(id: String): Caste {
+    fun getCasteById(id: String): LiveData<Caste> {
         return casteDao.getCasteById(id)
     }
     suspend fun insertInitialRecords(items: List<Caste>) {

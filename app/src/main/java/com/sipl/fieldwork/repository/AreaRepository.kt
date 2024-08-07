@@ -14,7 +14,7 @@ class AreaRepository(private val areaDao: AreaDao) {
     suspend fun getVillageByTaluka(id:String): LiveData<List<AreaItem>>{
         return areaDao.getVillageByTaluka(id);
     }
-    suspend fun getAreaByLocationId(id:String): AreaItem {
+     fun getAreaByLocationId(id:String): LiveData<AreaItem> {
         return areaDao.getAreaByLocationId(id);
     }
     suspend fun insertInitialRecords(items: List<AreaItem>) {

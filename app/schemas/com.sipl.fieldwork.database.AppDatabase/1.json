@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3854c04504b21e54e0135c8f6878b9db",
+    "identityHash": "116bd61a6be07f563210affb3c69594f",
     "entities": [
       {
         "tableName": "users",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `fullName` TEXT NOT NULL, `district` TEXT NOT NULL, `taluka` TEXT NOT NULL, `village` TEXT NOT NULL, `grampanchayatName` TEXT, `mobile` TEXT NOT NULL, `aadharCardId` TEXT NOT NULL, `latitude` TEXT NOT NULL, `longitude` TEXT NOT NULL, `beneficaryPhoto` TEXT NOT NULL, `gramsevakIdCardPhoto` TEXT NOT NULL, `aadharIdCardPhoto` TEXT NOT NULL, `tabletImeiPhoto` TEXT NOT NULL, `isSynced` INTEGER NOT NULL, `syncFailedReason` TEXT, `isSyncFailed` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `firstName` TEXT NOT NULL, `middleName` TEXT NOT NULL, `lastName` TEXT NOT NULL, `mobile` TEXT NOT NULL, `genderId` INTEGER, `genderName` TEXT NOT NULL, `casteId` INTEGER, `casteName` TEXT NOT NULL, `otherCasteName` TEXT, `villageId` INTEGER, `villageName` TEXT NOT NULL, `talukaId` INTEGER, `talukaName` TEXT NOT NULL, `wardNo` INTEGER, `dateOfBirth` TEXT, `address` TEXT NOT NULL, `isSynced` INTEGER, `syncFailedReason` TEXT, `isSyncFailed` INTEGER, `addedByUserId` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,34 +15,22 @@
             "notNull": false
           },
           {
-            "fieldPath": "fullName",
-            "columnName": "fullName",
+            "fieldPath": "firstName",
+            "columnName": "firstName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "district",
-            "columnName": "district",
+            "fieldPath": "middleName",
+            "columnName": "middleName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "taluka",
-            "columnName": "taluka",
+            "fieldPath": "lastName",
+            "columnName": "lastName",
             "affinity": "TEXT",
             "notNull": true
-          },
-          {
-            "fieldPath": "village",
-            "columnName": "village",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "grampanchayatName",
-            "columnName": "grampanchayatName",
-            "affinity": "TEXT",
-            "notNull": false
           },
           {
             "fieldPath": "mobile",
@@ -51,44 +39,74 @@
             "notNull": true
           },
           {
-            "fieldPath": "aadharCardId",
-            "columnName": "aadharCardId",
+            "fieldPath": "genderId",
+            "columnName": "genderId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "genderName",
+            "columnName": "genderName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "latitude",
-            "columnName": "latitude",
+            "fieldPath": "casteId",
+            "columnName": "casteId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "casteName",
+            "columnName": "casteName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "longitude",
-            "columnName": "longitude",
+            "fieldPath": "otherCasteName",
+            "columnName": "otherCasteName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "villageId",
+            "columnName": "villageId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "villageName",
+            "columnName": "villageName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "beneficaryPhoto",
-            "columnName": "beneficaryPhoto",
+            "fieldPath": "talukaId",
+            "columnName": "talukaId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "talukaName",
+            "columnName": "talukaName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "gramsevakIdCardPhoto",
-            "columnName": "gramsevakIdCardPhoto",
-            "affinity": "TEXT",
-            "notNull": true
+            "fieldPath": "wardNo",
+            "columnName": "wardNo",
+            "affinity": "INTEGER",
+            "notNull": false
           },
           {
-            "fieldPath": "aadharIdCardPhoto",
-            "columnName": "aadharIdCardPhoto",
+            "fieldPath": "dateOfBirth",
+            "columnName": "dateOfBirth",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
-            "fieldPath": "tabletImeiPhoto",
-            "columnName": "tabletImeiPhoto",
+            "fieldPath": "address",
+            "columnName": "address",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -96,7 +114,7 @@
             "fieldPath": "isSynced",
             "columnName": "isSynced",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "syncFailedReason",
@@ -107,6 +125,12 @@
           {
             "fieldPath": "isSyncFailed",
             "columnName": "isSyncFailed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addedByUserId",
+            "columnName": "addedByUserId",
             "affinity": "INTEGER",
             "notNull": false
           }
@@ -175,12 +199,112 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "gender",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`xid` INTEGER PRIMARY KEY AUTOINCREMENT, `created_at` TEXT NOT NULL, `gender_name` TEXT NOT NULL, `id` INTEGER NOT NULL, `is_active` INTEGER NOT NULL, `updated_at` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "xid",
+            "columnName": "xid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gender_name",
+            "columnName": "gender_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "is_active",
+            "columnName": "is_active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "xid"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "caste",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`xid` INTEGER PRIMARY KEY AUTOINCREMENT, `created_at` TEXT NOT NULL, `gender_name` TEXT NOT NULL, `id` INTEGER NOT NULL, `is_active` INTEGER NOT NULL, `updated_at` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "xid",
+            "columnName": "xid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gender_name",
+            "columnName": "gender_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "is_active",
+            "columnName": "is_active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "xid"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3854c04504b21e54e0135c8f6878b9db')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '116bd61a6be07f563210affb3c69594f')"
     ]
   }
 }

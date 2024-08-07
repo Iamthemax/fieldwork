@@ -8,8 +8,11 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @POST("login")
-    suspend fun loginUser(@Query("name") name : String):Response<LoginResponse>
+    @POST("dbb8354f-77e8-4201-b3a3-9bc7ae36ab16")
+    suspend fun loginUser(
+        @Query("mobile") mobile : String,
+        @Query("password") password : String,
+        ):Response<LoginResponse>
 
     @POST("logout")
     suspend fun logoutUser():Response<LoginResponse>

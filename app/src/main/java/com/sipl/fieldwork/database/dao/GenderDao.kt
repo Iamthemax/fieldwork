@@ -12,13 +12,13 @@ import com.sipl.fieldwork.database.entity.Gender
 @Dao
 interface GenderDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertAll(items: List<Gender>)
+    suspend  fun insertAll(items: List<Gender>)
 
     @Query("DELETE FROM gender")
-    suspend fun deleteAllGenders()
+    suspend  fun deleteAllGenders():Int
 
     @Query("SELECT COUNT(*) FROM gender WHERE is_active=1")
-    suspend fun getRowCount(): Int
+    suspend  fun getRowCount(): Int
     @Transaction
     suspend fun insertInitialRecords(items: List<Gender>) {
         deleteAllGenders()
@@ -26,9 +26,9 @@ interface GenderDao {
     }
 
     @Query("SELECT * FROM gender WHERE is_active=1 ORDER BY id ASC")
-    suspend fun getAllGenders(): LiveData<List<Gender>>
+     fun getAllGenders(): LiveData<List<Gender>>
 
     @Query("SELECT * FROM gender WHERE id = :id AND is_active=1")
-    suspend fun getGenderById(id: String): Gender
+     fun getGenderById(id: String): LiveData<Gender>
 
 }

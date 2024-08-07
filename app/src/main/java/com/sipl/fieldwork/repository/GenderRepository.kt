@@ -11,7 +11,7 @@ class GenderRepository(private val genderDao: GenderDao) {
     suspend fun getGenders(): LiveData<List<Gender>> {
         return genderDao.getAllGenders()
     }
-    suspend fun getGenderById(id: String): Gender {
+    suspend fun getGenderById(id: String): LiveData<Gender> {
         return genderDao.getGenderById(id)
     }
     suspend fun insertGenders(genders: List<Gender>) {

@@ -35,6 +35,7 @@ android {
             arguments {
                 arg("room.schemaLocation", "$projectDir/schemas")
             }
+
         }
     }
 

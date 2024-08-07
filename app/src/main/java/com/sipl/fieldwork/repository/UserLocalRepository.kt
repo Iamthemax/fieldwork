@@ -7,7 +7,7 @@ import com.sipl.fieldwork.database.model.UsersWithAreaNames
 
 class UserLocalRepository(private val userDao: UsersDao) {
 
-    suspend fun getUser(id: Int): Users {
+    fun getUser(id: Int): LiveData<Users> {
         return userDao.getUsersById(id)
     }
 
@@ -23,12 +23,12 @@ class UserLocalRepository(private val userDao: UsersDao) {
     suspend fun deleteUser(user: Users) {
         userDao.deleteUser(user)
     }
-    suspend fun getAllUsersWithAreaNames(): LiveData<List<UsersWithAreaNames>> {
+    /*suspend fun getAllUsersWithAreaNames(): LiveData<List<UsersWithAreaNames>> {
         return userDao.getUserssWithAreaNames()
     }
     suspend fun getAllUsersWithAreaNamesById(userId: Int): UsersWithAreaNames? {
         return userDao.getUserssWithAreaNamesById(userId)
-    }
+    }*/
     suspend fun getUserCount(): Int {
         return userDao.getUsersCount()
     }

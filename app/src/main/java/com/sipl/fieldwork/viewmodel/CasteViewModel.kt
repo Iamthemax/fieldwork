@@ -13,7 +13,7 @@ class CasteViewModel(private val casteRepository: CasteRepository) :ViewModel() 
         casteRepository.insertCaste(items)
 
     }
-    suspend fun getCasteById(id:String): Caste {
+    suspend fun getCasteById(id:String): LiveData<Caste> {
         return casteRepository.getCasteById(id)
     }
     suspend fun insertInitialRecords(items: List<Caste>) {

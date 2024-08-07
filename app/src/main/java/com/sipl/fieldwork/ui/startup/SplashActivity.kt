@@ -23,7 +23,9 @@ class SplashActivity : AppCompatActivity() {
             insets
         }
         Handler().postDelayed(Runnable {
-            startActivity(Intent(this, LoginActivity::class.java))
+            val intent=Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }, 1000)
     }
 }

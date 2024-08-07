@@ -5,30 +5,66 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.sipl.fieldwork.R
+import com.sipl.fieldwork.database.AppDatabase
+import com.sipl.fieldwork.database.entity.Users
 import com.sipl.fieldwork.databinding.ActivityRegistrationBinding
+import com.sipl.fieldwork.repository.UserLocalRepository
 import com.sipl.fieldwork.utils.MyValidator
+import com.sipl.fieldwork.viewmodel.UserLocalViewModel
+import com.sipl.fieldwork.viewmodel.UserLocalViewModelFactory
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class RegistrationActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegistrationBinding
+    lateinit var userLocalViewModel: UserLocalViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding= ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }*/
+        val userDao=AppDatabase.getDatabase(this).userDao()
+        val userLocalRepository=UserLocalRepository(userDao)
+        userLocalViewModel=ViewModelProvider(this,UserLocalViewModelFactory(userLocalRepository)).get(UserLocalViewModel::class.java)
         initializeData();
-
         binding.btnSubmit.setOnClickListener{
             if(validateFields()){
 
+            }
+
+            val user=Users(
+                firstName = "Vish",
+                middleName = "Vish",
+                lastName = "Vish",
+                mobile = "Vish",
+                genderName = "Vish",
+                casteName = "Vish",
+                talukaName = "Vish",
+                talukaId = 0,
+                villageId = 0,
+                casteId = 0,
+                genderId = 0,
+                address = "asda",
+                addedByUserId = 0,
+                villageName = "",
+                otherCasteName = "",
+                isSynced =false
+            )
+            lifecycleScope.launch {
+                val id=userLocalViewModel.insertUser(user).await();
+                Log.d("mytag",""+id)
             }
         }
     }

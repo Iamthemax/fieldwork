@@ -14,12 +14,12 @@ class LoginViewModel(private  val userRepository: UserRepository) : ViewModel() 
     private val _loginData=MutableLiveData<BaseResponse<LoginResponse>>()
     val loginData: LiveData<BaseResponse<LoginResponse>> get() = _loginData
 
-    fun loginUser(name :String)
+    fun loginUser(mobile :String,password:String)
     {
         viewModelScope.launch {
             _loginData.postValue(BaseResponse.Loading)
             try {
-                userRepository.loginUser(name);
+                userRepository.loginUser(mobile,password);
                 userRepository.getLogin.observeForever { response ->
                     _loginData.postValue(response)
                 }
