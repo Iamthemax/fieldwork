@@ -13,7 +13,6 @@ class UserRepository(private val apiService: ApiService) {
     private val loginData = MutableLiveData<BaseResponse<LoginResponse>>()
     val getLogin: LiveData<BaseResponse<LoginResponse>>
         get() = loginData
-
     suspend fun loginUser(name: String) {
         try {
             val result = apiService.loginUser(name)
@@ -37,4 +36,6 @@ class UserRepository(private val apiService: ApiService) {
             loginData.postValue(BaseResponse.Error(e))
         }
     }
+
+
 }

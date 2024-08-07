@@ -6,15 +6,18 @@ import androidx.appcompat.app.AppCompatDelegate
 
 class MyApp : Application() {
 
-    private lateinit var application:Application
     override fun onCreate() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate()
-        application=this
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        instance = this
     }
 
-     fun getMyApplicationContext():Context{
-        return application.applicationContext;
+    companion object {
+        private lateinit var instance: MyApp
+
+        fun getAppContext(): Context {
+            return instance.applicationContext
+        }
     }
 
 }

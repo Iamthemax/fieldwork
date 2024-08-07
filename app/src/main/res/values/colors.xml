@@ -3,7 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#F0F0F0</color>
-
     <!-- Text Colors -->
     <color name="primary_text_color">#212121</color>
     <color name="button_text_color">#FFFFFF</color>
@@ -12,11 +11,15 @@
     <!-- Card Background and Stroke Colors -->
     <color name="card_background">#FFFFFF</color>
     <color name="box_stroke_color">#DDDDDD</color>
-    <color name="button_background_color">#6200EE</color>
+    <color name="button_background_color">#DE400E</color>
 
     <!-- Error Colors -->
     <color name="error_color">#D32F2F</color>
 
     <!-- Success Colors -->
     <color name="success_color">#388E3C</color>
+
+    <color name="colorPrimary">#EF3D06</color>
+    <color name="colorPrimaryDark">#7A1F03</color>
+    <color name="colorAccent">#DCD3ED</color>
 </resources>

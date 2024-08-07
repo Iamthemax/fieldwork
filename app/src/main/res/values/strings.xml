@@ -203,4 +203,13 @@
     <string name="error_while_opening_pdf">Unable to open pdf</string>
     <string name="scan_qr_code">Scan QR Code</string>
     <string name="app_logo_description">App Logo description</string>
+    <string name="enter_mobile_number">Enter 10-digit Mobile Number</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_middle_name">Enter Middle Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="enter_ward_no">Enter Ward No.</string>
+    <string name="select_caste">Select Caste</string>
+    <string name="enter_voter_id">Enter Voter Id (Optional)</string>
+    <string name="enter_caste_name">Enter Caste Name</string>
 </resources>

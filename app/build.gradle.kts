@@ -8,14 +8,16 @@ if (localPropertiesFile.exists()) {
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+
 }
 
 android {
-    namespace = "com.example.fieldwork"
+    namespace = "com.sipl.fieldwork"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.fieldwork"
+        applicationId = "com.sipl.fieldwork"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -29,7 +31,11 @@ android {
         val defaultConnectTimeout = "30L" // Default value for connect timeout in seconds
         val connectTimeout = localProperties.getProperty("CONNECT_TIMEOUT", defaultConnectTimeout)
         buildConfigField("Long", "CONNECT_TIMEOUT", connectTimeout)
-
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     buildTypes {
@@ -67,18 +73,24 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
     //Gson
-    implementation ("com.google.code.gson:gson:2.11.0")
+    implementation (libs.gson)
     // Okhttp Interceptor
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation(libs.logging.interceptor)
     // Lifecycle components
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.4")
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
     // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    annotationProcessor(libs.room.compiler)
+    kapt(libs.room.compiler)
 
 
 }

@@ -1,11 +1,11 @@
-package com.sipl.fieldwork.ui.startup
+package com.sipl.fieldwork.ui.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.fieldwork.R
+import com.sipl.fieldwork.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

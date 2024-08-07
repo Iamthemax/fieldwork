@@ -25,7 +25,6 @@
         android:layout_height="120dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
-        android:src="@drawable/ic_app_logo"
         android:contentDescription="@string/app_logo_description"
         android:background="@drawable/circle_background"
         android:padding="16dp"/>
@@ -47,23 +46,25 @@
                 android:id="@+id/txLayoutEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_email_id"
-                app:boxCornerRadius="8dp"
                 app:boxStrokeColor="@color/box_stroke_color">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etMobile"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:digits="0123456789"
+                    android:lines="1"
+                    android:hint="@string/enter_mobile_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
+                    android:inputType="phone"
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
             <!-- Password Field -->
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="24dp"
                 android:id="@+id/txLayoutPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_password"
-                app:boxCornerRadius="8dp"
                 app:boxStrokeColor="@color/box_stroke_color"
                 app:passwordToggleEnabled="true">
 
@@ -72,6 +73,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:hint="@string/enter_password"
+                    android:lines="1"
                     android:imeOptions="actionDone" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +84,7 @@
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:text="@string/login"
                 android:textColor="@color/button_text_color"
                 android:backgroundTint="@color/button_background_color"
@@ -87,6 +92,7 @@
 
             <!-- Reset Password Link -->
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tvResetPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

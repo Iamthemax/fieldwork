@@ -1,5 +1,6 @@
 package com.sipl.fieldwork.ui.startup
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -8,7 +9,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.sipl.fieldwork.R
+import com.sipl.fieldwork.databinding.ActivityLoginBinding
 import com.sipl.fieldwork.repository.UserRepository
+import com.sipl.fieldwork.ui.main.RegistrationActivity
 import com.sipl.fieldwork.viewmodel.LoginViewModel
 import com.sipl.fieldwork.viewmodel.LoginViewModelFactory
 import com.sipl.fieldwork.webservice.ApiClient
@@ -16,10 +19,12 @@ import com.sipl.fieldwork.webservice.BaseResponse
 
 class LoginActivity : AppCompatActivity() {
     lateinit var viewModel: LoginViewModel
+    lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        binding= ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -45,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Login failed: ${response.exception.message}", Toast.LENGTH_LONG).show()
                     }
                 }
+        }
+        binding.btnLogin.setOnClickListener {
+
+            startActivity(Intent(this,RegistrationActivity::class.java))
         }
     }
 

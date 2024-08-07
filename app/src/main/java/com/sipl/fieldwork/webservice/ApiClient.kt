@@ -3,6 +3,7 @@ package com.sipl.fieldwork.webservice
 import android.util.Log
 import com.sipl.fieldwork.BuildConfig
 import com.sipl.fieldwork.application.MyApp
+import com.sipl.fieldwork.application.MyApp.Companion.getAppContext
 import com.sipl.fieldwork.utils.MySharedPref
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -12,8 +13,8 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
     private const val BASE_URL= BuildConfig.API_URL;
-    private const val READ_TIMEOUT =BuildConfig.READ_TIMEOUT;
-    private const val CONNECT_TIMEOUT =BuildConfig.CONNECT_TIMEOUT;
+    private val READ_TIMEOUT =BuildConfig.READ_TIMEOUT;
+    private  val CONNECT_TIMEOUT =BuildConfig.CONNECT_TIMEOUT;
     private val logInterceptor by lazy {
        HttpLoggingInterceptor().apply {
            level=if(BuildConfig.DEBUG)
@@ -33,7 +34,7 @@ object ApiClient {
                     .build()
                 chain.proceed(request)
             }.addInterceptor(logInterceptor)
-            .addInterceptor(AuthInterceptor(MyApp().getMyApplicationContext()))
+            .addInterceptor(AuthInterceptor(getAppContext()))
             .connectTimeout(CONNECT_TIMEOUT.toLong(),TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT.toLong(),TimeUnit.SECONDS)
             .build()
@@ -50,7 +51,7 @@ object ApiClient {
     }
     private fun getAuthToken():String{
 
-        val pref=MySharedPref(MyApp().getMyApplicationContext())
+        val pref=MySharedPref(getAppContext())
         Log.d("mytag", pref.getToken())
         return pref.getToken()
     }
