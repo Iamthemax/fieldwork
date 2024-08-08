@@ -18,5 +18,5 @@ interface ApiService {
     suspend fun logoutUser():Response<LoginResponse>
 
     @POST("list-masters-updated")
-    fun fetchMastersDataTobeUpdated(): Response<LoginResponse>
+    fun getMasters(): Response<LoginResponse>
 }

@@ -23,15 +23,16 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_gravity="center_horizontal"
-               android:text="App Name"
-               android:textColor="@color/primary_text_color"
+               android:text="आमदार परिवार"
+               android:textColor="@color/colorPrimary"
                android:textSize="36sp"
                android:textStyle="bold"
                android:layout_marginTop="40dp" />
            <!-- App Logo -->
            <ImageView
-               android:layout_width="120dp"
-               android:layout_height="120dp"
+               android:layout_width="250dp"
+               android:layout_height="240dp"
+               android:src="@drawable/app_logo"
                android:layout_gravity="center_horizontal"
                android:layout_marginTop="24dp"
                android:contentDescription="@string/app_logo_description"
@@ -90,15 +91,15 @@
                <Button
                    android:id="@+id/btnLogin"
                    android:layout_width="match_parent"
-                   android:layout_height="55dp"
-                   android:text="@string/login"
-                   android:textColor="@color/button_text_color"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="16dp"
                    android:backgroundTint="@color/button_background_color"
-                   android:layout_marginTop="16dp"/>
+                   android:text="@string/login"
+                   android:textColor="@color/button_text_color" />
 
                <!-- Reset Password Link -->
                <TextView
-                   android:visibility="visible"
+                   android:visibility="gone"
                    android:id="@+id/tvResetPassword"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"

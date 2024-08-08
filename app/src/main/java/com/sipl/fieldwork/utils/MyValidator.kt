@@ -20,6 +20,10 @@ object MyValidator {
         var result = name !== null && name.isNotEmpty() && name.isNotBlank() && name.length > 1
         return result
     }
+    public fun isValidOptionalInputField(name: String): Boolean {
+        var result = name !== null && name.isNotEmpty() && name.isNotBlank() && name.length > 1
+        return result
+    }
     public fun isValidPassword(name: String): Boolean {
         var result = name !== null && name.isNotEmpty() && name.isNotBlank() && name.length > 7
         return result

@@ -213,4 +213,8 @@
     <string name="enter_voter_id">Enter Voter Id (Optional)</string>
     <string name="enter_caste_name">Enter Caste Name</string>
     <string name="enter_valid_password">Enter at least 8-digit valid password</string>
+    <string name="no_internet_title">No Internet Connection</string>
+    <string name="no_internet_message">Please check your connection and try again.</string>
+    <string name="no_internet_image">No Internet Image</string>
+
 </resources>

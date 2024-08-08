@@ -1,10 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.EditUserOfflineActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- First Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_first_name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="200"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Middle Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutMiddleName"
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_middle_name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="200"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Last Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutLastName"
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_last_name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="200"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Date of Birth -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutDOB"
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <AutoCompleteTextView
+                    android:id="@+id/etDOB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:hint="@string/select_date_of_birth"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:drawableEnd="@drawable/calendar"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:clickable="true"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Gender -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:id="@+id/txLayoutGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <AutoCompleteTextView
+                    android:id="@+id/etGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:textSize="16sp"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:hint="@string/select_gender"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:id="@+id/txLayoutCaste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <AutoCompleteTextView
+                    android:id="@+id/etCaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:textSize="16sp"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:hint="@string/select_caste"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Ward Number -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutOtherCaste"
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etOtherCaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_caste_name"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="100"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Mobile -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:id="@+id/txLayoutMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_mobile_number"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:digits="0123456789"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Voter ID -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:id="@+id/txLayoutVoterID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVoterID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_voter_id"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="50"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Taluka -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:id="@+id/txLayoutTaluka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <AutoCompleteTextView
+                    android:id="@+id/etTaluka"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:textSize="16sp"
+                    android:hint="@string/select_taluka"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Village -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutVillage"
+                android:layout_marginTop="@dimen/etMarginTop"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <AutoCompleteTextView
+                    android:id="@+id/etVillage"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:hint="@string/select_village"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Ward Number -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutWardNo"
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etWardNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_ward_no"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:maxLength="100"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Address -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txLayoutAddress"
+                android:layout_marginTop="@dimen/etMarginTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/box_stroke_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="@string/enter_address"
+                    android:lines="4"
+                    android:maxLines="4"
+                    android:maxLength="500"
+                    android:gravity="start"
+                    android:inputType="textPostalAddress"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Submit Button -->
+            <Button
+                android:layout_marginTop="@dimen/genMargin16"
+                android:layout_marginBottom="48dp"
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="@string/submit"
+                android:textColor="@color/button_text_color"
+                android:backgroundTint="@color/button_background_color"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

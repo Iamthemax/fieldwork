@@ -169,13 +169,27 @@ class RegistrationActivity : AppCompatActivity() {
             validationResults.add(false)
         }
 
-        // Validate Ward Number
-        if (MyValidator.isValidInputField(binding.etWardNo.text.toString())) {
-            binding.txLayoutWardNo.error = null
-            validationResults.add(true)
-        } else {
-            binding.txLayoutWardNo.error = getString(R.string.enter_ward_no)
-            validationResults.add(false)
+        if(MyValidator.isValidInputField(binding.etWardNo.text.toString()))
+        {
+            // Validate Ward Number
+            if (MyValidator.isValidInputField(binding.etWardNo.text.toString())) {
+                binding.txLayoutWardNo.error = null
+                validationResults.add(true)
+            } else {
+                binding.txLayoutWardNo.error = getString(R.string.enter_ward_no)
+                validationResults.add(false)
+            }
+        }
+        if(MyValidator.isValidInputField(binding.etOtherCaste.text.toString()))
+        {
+            // Validate Ward Number
+            if (MyValidator.isValidInputField(binding.etOtherCaste.text.toString())) {
+                binding.etOtherCaste.error = null
+                validationResults.add(true)
+            } else {
+                binding.etOtherCaste.error = getString(R.string.enter_caste_name)
+                validationResults.add(false)
+            }
         }
 
         // Validate Address
