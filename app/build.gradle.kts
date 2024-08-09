@@ -13,11 +13,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sipl.fieldwork"
+    namespace = "com.sipl.aamdarparivar"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sipl.fieldwork"
+        applicationId = "com.sipl.aamdarparivar"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

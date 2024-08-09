@@ -7,14 +7,12 @@
     android:padding="24dp"
     android:gravity="center"
     android:background="@drawable/bg_dialog_rounded">
-
     <ImageView
         android:id="@+id/iv_no_internet"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/no_internet"
         android:contentDescription="@string/no_internet_image"/>
-
     <TextView
         android:id="@+id/tv_no_internet_title"
         android:layout_width="wrap_content"
@@ -23,7 +21,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"/>
-
     <TextView
         android:id="@+id/tv_no_internet_message"
         android:layout_width="wrap_content"
@@ -34,6 +31,7 @@
         android:textColor="@android:color/darker_gray"/>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btn_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
